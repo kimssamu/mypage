@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>My To Do List</title>
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"
+        integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog=="
+        crossorigin="anonymous" />
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
+        crossorigin="anonymous"></script>
+
+    <script src="http://code.jquery.com/jquery-3.1.1.js"></script>
+
+    <style type="text/css">
+
+        /* content 부분 text area로 바꾸고 개행문자(띄어쓰기, 공백) 처리하도록 */
+        @font-face {
+            font-family: foo;
+            src: url('./NanumMyeongjo-Regular.ttf');
+        }
+
+
+        @font-face {
+            font-family: foo;
+            src: url('./TiltNeon-Regular.ttf');
+            unicode-range: U+00-52F, U+1E00-1FFF, U+2200-22FF;
+        }
+
+        * {
+            font-family: foo;
+        }
+
+        body {
+            padding: 4%;
+        }
+
+        #main {
+            margin-bottom: 50px;
+        }
+
+        #m_t {
+            background-color: red;
+        }
+
+
+        #title {
+            margin-bottom: 15px;
+        }
+
+        #content {
+            width: 250px;
+            height: 60px;
+            text-align: left;
+            padding-bottom: 4px;
+        }
+
+        #title {
+            padding-bottom: 40px;
+
+        }
+
+        #title1 {
+            width: 250px;
+            height: 30px text-align left;
+        }
+
+        #input1 {
+            width: 85%;
+            height: 30px;
+            text-align: left;
+        }
+
+        #input2 {
+            width: 85%;
+            height: 60px;
+            text-align: left;
+        }
+
+        #button_zip {
+
+            margin-top: 50px;
+        }
+
+        .table {
+            margin-top: 40px;
+        }
+
+        .trash {
+            background-color: red;
+
+        }
+
+        .table {
+            text-align: center;
+
+        }
+
+        #btn_im {
+            background-size: cover;
+        }
+    </style>
+
+
+</head>
+
+
+<body>
+
+    <!-- 창 줄여도 변함 없게 css 작성하기 (table, fix 사용)-->
+    <div id="main">
+        <h1>My To Do List</h1>
+        <h6>add your to-do List!</h6>
+    </div>
+
+    <div id="title">
+        <div id="title1" style="float:left">Title</div>
+        <input type="text" id="input1" placeholder="Leave a title here">
+    </div>
+
+    <div id="m.content">
+        <div id="content" style="float:left">Content</div>
+        <input type="text" id="input2" placeholder="Leave a content here">
+    </div>
+
+    <p></p>
+
+    <div id="button_zip">
+        <button type="button" class="btn btn-outline-primary" onclick="addList();">Plus-To-Do</button>
+
+        <button type="button" class="btn btn-outline-danger" onclick="delist();" style="float:right">Clear</button>
+
+    </div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">No</th>
+                <th scope="col">Title</th>
+                <th scope="col">Content</th>
+                <th scope="col">Date of register</th>
+                <th scope="col">Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr id="row_1">
+                <th scope="row=">1</th>
+                <td class="con1"></td>
+                <td class="con2"></td>
+                <td class="con3"></td>
+                <td class="con4"></td>
+            </tr>
+            <tr id="row_2">
+                <th scope="row">2</th>
+                <td class="con1"></td>
+                <td class="con2"></td>
+                <td class="con3"></td>
+                <td class="con4"></td>
+            </tr>
+
+            <tr id="row_3">
+                <th scope="row">3</th>
+                <td class="con1"></td>
+                <td class="con2"></td>
+                <td class="con3"></td>
+                <td class="con4"></td>
+            </tr>
+
+            <tr id="row_4">
+                <th scope="row">4</th>
+                <td class="con1"></td>
+                <td class="con2"></td>
+                <td class="con3"></td>
+                <td class="con4"></td>
+            </tr>
+
+            <tr id="row_5">
+                <th scope="row">5</th>
+                <td class="con1"></td>
+                <td class="con2"></td>
+                <td class="con3"></td>
+                <td class="con4"></td>
+            </tr>
+
+            <tr id="row_6">
+                <th scope="row">6</th>
+                <td class="con1"></td>
+                <td class="con2"></td>
+                <td class="con3"></td>
+                <td class="con4"></td>
+            </tr>
+
+            <tr id="row_7">
+                <th scope="row">7</th>
+                <td class="con1"></td>
+                <td class="con2"></td>
+                <td class="con3"></td>
+                <td class="con4"></td>
+            </tr>
+
+            <tr id="row_8">
+                <th scope="row">8</th>
+                <td class="con1"></td>
+                <td class="con2"></td>
+                <td class="con3"></td>
+                <td class="con4"></td>
+            </tr>
+
+            <tr id="row_9">
+                <th scope="row">9</th>
+                <td class="con1"></td>
+                <td class="con2"></td>
+                <td class="con3"></td>
+                <td class="con4"></td>
+            </tr>
+
+            <tr id="row_10">
+                <th scope="row">10</th>
+                <td class="con1"></td>
+                <td class="con2"></td>
+                <td class="con3"></td>
+                <td class="con4"></td>
+            </tr>
+        </tbody>
+    </table>
+
+    </div>
+
+    <script>
+        let list = [];
+        function addList() {
+
+            var title = document.getElementById("input1").value;
+            var content = document.getElementById("input2").value;
+
+            const inputtitle = document.querySelector("#input1");
+            const inputcontent = document.querySelector("#input2");
+
+            //content, title 모두 없을 때 조건도 넣기
+            //나중에 코드 시현할 때, 유의미한 데이터로 넣어보기
+            if (content == '') {
+                alert("Error: content를 입력해주세요");
+                return false;
+            }
+
+            if (title == '') {
+                alert("Error: title를 입력해주세요");
+                return false;
+            }
+ 
+
+            //0을 붙이면 1의자리 숫자가 될 때 slice(-2)를 통해 맨 뒤에 두 자리만 나오도록
+            var dt = new Date();
+            var date = '';
+            date += dt.getFullYear() + "-";
+            date += ("0" + (dt.getMonth() + 1)).slice(-2) + "-";
+            date += ("0" + (dt.getDate() + 1)).slice(-2) + " ";
+            date += ("0" + (dt.getHours())).slice(-2) + ":";
+            date += ("0" + (dt.getMinutes())).slice(-2);
+
+            //나중에 쓰레기통st로 넣기
+            var delete_btn = "<button style = \"background-color:transparent\; outline:0\; border:0\;\" onclick=\"onedelete(this)\"><img id=\"btn_im\" src=\"trash.PNG\" style=\"width:25px\; \"height:25px\;\"\\></button>"
+
+            list.unshift({ "title": title, "content": content, "date": date, "delete": delete_btn });
+
+            //함수 호출
+            makelist(list);
+
+            if (list.length > 9) {
+                alert("10개를 초과하셨습니다");
+                return false;
+            }
+
+            inputtitle.value = "";
+            inputcontent.value = "";
+
+        }
+
+        //for문을 활용하여 
+        function makelist(list) {
+            for (let i = 0; i < list.length; i++) {
+
+                console.log(list[i]);
+
+                //${} 문자열 안에 변수(i)를 가져온다
+                const Title_ = document.querySelector(`#row_${i + 1} > .con1`)
+                const Content_ = document.querySelector(`#row_${i + 1} > .con2`)
+                const Date_ = document.querySelector(`#row_${i + 1} > .con3`)
+                const Delete_ = document.querySelector(`#row_${i + 1} > .con4`)
+
+
+                //변수 부분에 input된 list 값을 할당
+                Title_.innerHTML = list[i].title;
+                Content_.innerHTML = list[i].content;
+                Date_.innerHTML = list[i].date;
+                Delete_.innerHTML = list[i].delete;
+            }
+
+            title = ' ';
+            content.value = " ";
+        }
+
+
+        //clear 버튼
+        function delist() {
+            allDelete()
+            list = []
+        }
+
+        function allDelete() {
+            const tbody = document.querySelector('.table tbody')
+            const trde = tbody.getElementsByTagName('tr')
+            for (var i = 0; i < trde.length; i++) {
+                const tdde = trde[i].getElementsByTagName('td');
+                console.log(tdde)
+
+                tdde[0].innerText = "";
+                tdde[1].innerText = "";
+                tdde[2].innerText = "";
+                tdde[3].innerText = "";
+            }
+
+        }
+
+
+
+        //하나 지우기
+        function onedelete(delete_btn) {
+            var row_list = delete_btn.parentNode.parentNode.id.substring(4);
+            allDelete()
+            //
+            list.splice(row_list - 1, 1);
+            makelist(list);
+
+        }
+
+
+    </script>
+
+
+</body>
+
+</html>
